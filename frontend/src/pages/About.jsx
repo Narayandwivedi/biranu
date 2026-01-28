@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const values = [
   {
     title: 'Integrity',
@@ -31,11 +33,17 @@ const values = [
   },
 ]
 
+const milestones = [
+  { icon: '01', title: 'IT Consulting', desc: 'Digital transformation & technical roadmaps' },
+  { icon: '02', title: 'International Export', desc: 'Global trade & supply chain management' },
+  { icon: '03', title: 'HR Supply', desc: 'Top-tier talent acquisition & workforce solutions' },
+]
+
 const About = () => {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-indigo-50 via-white to-white border-b border-gray-100 py-10 sm:py-14 lg:py-16">
+      <section className="bg-gradient-to-b from-blue-100 via-indigo-50 to-white border-b border-gray-200 py-10 sm:py-14 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Who We Are</span>
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mt-2 mb-2 sm:mb-3 tracking-tight text-gray-900">About Us</h1>
@@ -45,31 +53,78 @@ const About = () => {
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-10 sm:py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-10">
-            <div className="lg:col-span-3 space-y-3 sm:space-y-5 text-gray-600 text-xs sm:text-sm leading-relaxed">
-              <p>
-                Biranu Consulting, headquartered in the UK and led by <strong className="text-gray-900">Ambika Padhy</strong>, is a multi-disciplinary firm dedicated to driving business excellence. We bridge the gap between innovation and execution by specializing in three strategic pillars: <strong className="text-gray-900">IT Consulting</strong>, <strong className="text-gray-900">International Export</strong>, and <strong className="text-gray-900">HR Supply</strong>.
-              </p>
-              <p>
-                Our IT division empowers organizations through digital transformation and robust technical roadmaps. Simultaneously, our export wing facilitates seamless global trade, connecting quality products with international markets.
-              </p>
-              <p>
-                Recognizing that people are a company's greatest asset, our HR supply services deliver top-tier talent tailored to your specific organizational needs. At Biranu Consulting, we pride ourselves on a leadership-driven approach that prioritizes integrity and bespoke solutions.
-              </p>
-            </div>
-            <div className="lg:col-span-2">
-              <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-5 sm:p-6 text-white">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center mb-3 sm:mb-4">
-                  <span className="text-sm sm:text-base font-bold">AP</span>
-                </div>
-                <h3 className="text-sm sm:text-base font-bold mb-1">Ambika Padhy</h3>
-                <p className="text-[10px] sm:text-xs text-indigo-200 mb-2 sm:mb-3">Founder & Director</p>
-                <p className="text-[11px] sm:text-xs text-indigo-100 leading-relaxed">
-                  Leading Biranu Consulting with a vision to connect businesses globally through technology, talent, and trade.
+      {/* Mission + Founder */}
+      <section className="py-10 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-14 items-start">
+            {/* Left - Mission */}
+            <div>
+              <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Our Mission</span>
+              <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-900 mt-2 mb-3 sm:mb-5">
+                Bridging Innovation and Execution
+              </h2>
+              <div className="space-y-3 sm:space-y-4 text-gray-600 text-xs sm:text-sm leading-relaxed">
+                <p>
+                  Biranu Consulting, headquartered in the UK and led by <strong className="text-gray-900">Ambika Padhy</strong>, is a multi-disciplinary firm dedicated to driving business excellence across three strategic pillars.
                 </p>
+                <p>
+                  Our IT division empowers organizations through digital transformation and robust technical roadmaps. Our export wing facilitates seamless global trade, connecting quality products with international markets.
+                </p>
+                <p>
+                  Recognizing that people are a company's greatest asset, our HR supply services deliver top-tier talent tailored to your specific organizational needs.
+                </p>
+              </div>
+
+              {/* Pillars mini list */}
+              <div className="mt-5 sm:mt-8 space-y-2.5 sm:space-y-3">
+                {milestones.map((m) => (
+                  <div key={m.icon} className="flex items-center gap-3 sm:gap-4 bg-gray-50 rounded-xl p-3 sm:p-4 border border-gray-100">
+                    <div className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-[10px] sm:text-xs font-bold">
+                      {m.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-semibold text-gray-900">{m.title}</h4>
+                      <p className="text-[10px] sm:text-xs text-gray-500">{m.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right - Founder card + quote */}
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-5 sm:p-8 text-white">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30">
+                    <span className="text-base sm:text-lg font-bold">AP</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-lg font-bold">Ambika Padhy</h3>
+                    <p className="text-[10px] sm:text-xs text-indigo-200 font-medium">Founder & Director</p>
+                  </div>
+                </div>
+                <blockquote className="text-[11px] sm:text-sm leading-relaxed italic text-indigo-100">
+                  "We pride ourselves on a leadership-driven approach that prioritizes integrity and bespoke solutions. Our goal is to connect businesses globally through technology, talent, and trade."
+                </blockquote>
+              </div>
+
+              <div className="bg-gray-50 rounded-2xl border border-gray-100 p-5 sm:p-6">
+                <h4 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3">Why Biranu?</h4>
+                <div className="space-y-2 sm:space-y-3">
+                  {[
+                    'Leadership-driven, client-first approach',
+                    'Bespoke solutions for every engagement',
+                    'Cross-domain expertise under one roof',
+                    'UK-headquartered with global reach',
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-[11px] sm:text-xs text-gray-600">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -77,11 +132,14 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-slate-50">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Our Foundation</span>
-            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mt-2">Our Values</h2>
+            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mt-2 mb-2 sm:mb-3">Our Values</h2>
+            <p className="text-gray-500 text-xs sm:text-sm max-w-md mx-auto">
+              The principles that guide everything we do.
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {values.map((v) => (
@@ -97,11 +155,23 @@ const About = () => {
         </div>
       </section>
 
-      {/* Tagline */}
-      <section className="py-8 sm:py-12 bg-indigo-600 text-white text-center px-4">
-        <p className="text-sm sm:text-xl lg:text-2xl font-bold tracking-tight">
-          Biranu Consulting &ndash; Connecting Technology, Talent, and Trade.
-        </p>
+      {/* CTA */}
+      <section className="py-10 sm:py-14 bg-indigo-600 text-white text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">Work With Us</h2>
+          <p className="text-indigo-100 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
+            Let us help you navigate today's complex business landscape with tailored solutions.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-1.5 bg-white text-indigo-700 font-semibold px-5 sm:px-7 py-1.5 sm:py-2 rounded-full hover:bg-indigo-50 transition text-xs sm:text-sm shadow-md"
+          >
+            Get in Touch
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
       </section>
     </>
   )
