@@ -137,18 +137,18 @@ const Services = () => {
               Flexible engagement models designed for your unique business needs.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {serviceTypes.map((s) => (
-              <div key={s.title} className="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className={`shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${s.color} text-white flex items-center justify-center shadow-md`}>
+              <div key={s.title} className="bg-gray-50 rounded-xl border border-gray-100 p-3 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="flex items-start gap-2 sm:gap-4">
+                  <div className={`shrink-0 w-7 h-7 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${s.color} text-white flex items-center justify-center shadow-sm`}>
                     {s.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900">{s.title}</h3>
+                    <h3 className="text-[10px] sm:text-base font-bold text-gray-900">{s.title}</h3>
                   </div>
                 </div>
-                <p className="text-gray-500 text-[11px] sm:text-sm leading-relaxed mt-3 sm:mt-4">{s.desc}</p>
+                <p className="text-gray-500 text-[10px] sm:text-sm leading-relaxed mt-2 sm:mt-4">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -156,25 +156,29 @@ const Services = () => {
       </section>
 
       {/* Global Reach */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs font-semibold text-indigo-200 uppercase tracking-widest">Global Reach</span>
+            <span className="text-[10px] sm:text-xs font-semibold text-gray-300 uppercase tracking-widest">Global Reach</span>
             <h2 className="text-xl sm:text-3xl font-bold mt-2 mb-2 sm:mb-3">Your Competitive Advantage</h2>
-            <p className="text-indigo-100 text-xs sm:text-sm max-w-lg mx-auto">
+            <p className="text-gray-300 text-xs sm:text-sm max-w-lg mx-auto">
               Operating across the UK, Europe, and India, we combine local market understanding with global delivery capability.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {globalAdvantages.map((a) => (
-              <div key={a.title} className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center mb-3 sm:mb-4">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              <div key={a.title} className="bg-gray-100 rounded-xl p-3 sm:p-6">
+                <div className="flex items-start gap-2">
+                  <div className="w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-gray-700 flex items-center justify-center shrink-0">
+                    <svg className="w-3 h-3 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-[10px] sm:text-base font-bold text-gray-900">{a.title}</h3>
+                  </div>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold mb-1 sm:mb-2">{a.title}</h3>
-                <p className="text-indigo-100 text-[11px] sm:text-sm leading-relaxed">{a.desc}</p>
+                <p className="text-gray-600 text-[10px] sm:text-sm leading-relaxed mt-2">{a.desc}</p>
               </div>
             ))}
           </div>
@@ -193,7 +197,7 @@ const Services = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {expertise.map((e) => (
-              <div key={e.title} className="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+              <div key={e.title} className="bg-gray-50 rounded-2xl border border-gray-100 p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${e.color} text-white mb-3 sm:mb-4 shadow-lg`}>
                   {e.icon}
                 </div>
