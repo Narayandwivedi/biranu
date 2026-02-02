@@ -34,7 +34,7 @@ const Navbar = () => {
               <span className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-blue-950">
                 Biranu<span className="font-normal">Consulting</span>
               </span>
-              <span className="text-[8px] sm:text-[9px] text-blue-600/70 font-medium tracking-widest uppercase">Driving Business Excellence</span>
+              <span className="text-[8px] sm:text-[9px] text-blue-600/70 font-medium tracking-widest uppercase">Global IT Talent Solutions</span>
             </div>
           </Link>
 

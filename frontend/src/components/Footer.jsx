@@ -14,7 +14,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[11px] sm:text-xs leading-relaxed max-w-xs">
-              Connecting Technology, Talent, and Trade. A UK-based multi-disciplinary firm led by Ambika Padhy.
+              Empowering Global IT Talent. Delivering Local Impact. Connecting technology professionals across UK, Europe, and India.
             </p>
           </div>
 
@@ -39,11 +39,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">Services</h4>
+            <h4 className="text-white font-semibold text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">IT Expertise</h4>
             <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs">
-              <li>IT Consulting</li>
-              <li>International Export</li>
-              <li>HR Supply</li>
+              <li>Software Development</li>
+              <li>Cloud & DevOps</li>
+              <li>Data & Analytics</li>
+              <li>Cybersecurity</li>
+              <li>QA & Testing</li>
             </ul>
           </div>
 
@@ -53,8 +55,8 @@ const Footer = () => {
             <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs">
               <li>Rear of 17 Plantagenet Road,<br />Barnet, EN5 5JG, UK</li>
               <li>
-                <a href="mailto:ambikapadhy@biranuconsulting.com" className="hover:text-white transition-colors break-all">
-                  ambikapadhy@biranuconsulting.com
+                <a href="mailto:info@biranuconsulting.com" className="hover:text-white transition-colors break-all">
+                  info@biranuconsulting.com
                 </a>
               </li>
               <li>
@@ -68,7 +70,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-5 sm:pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] sm:text-xs">
           <span>&copy; {new Date().getFullYear()} Biranu Consulting. All rights reserved.</span>
-          <span className="text-gray-500">Connecting Technology, Talent, and Trade</span>
+          <span className="text-gray-500">Global IT Talent Solutions</span>
         </div>
       </div>
     </footer>

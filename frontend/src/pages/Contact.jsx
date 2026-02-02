@@ -1,6 +1,6 @@
 const Contact = () => {
   const whatsappNumber = '447850409469'
-  const whatsappMessage = encodeURIComponent('Hello! I would like to enquire about your consulting services.')
+  const whatsappMessage = encodeURIComponent('Hello! I would like to enquire about your IT talent solutions.')
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   return (
@@ -11,7 +11,7 @@ const Contact = () => {
           <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Get In Touch</span>
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mt-2 mb-2 sm:mb-3 tracking-tight text-gray-900">Contact Us</h1>
           <p className="text-gray-500 text-xs sm:text-base max-w-xl mx-auto">
-            Our experts are ready to assist you with your business needs.
+            Discover how our IT talent solutions can power your business forward.
           </p>
         </div>
       </section>
@@ -50,8 +50,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5">Email</h3>
-                  <a href="mailto:ambikapadhy@biranuconsulting.com" className="text-[11px] sm:text-xs text-indigo-600 hover:text-indigo-700 transition break-all">
-                    ambikapadhy@biranuconsulting.com
+                  <a href="mailto:info@biranuconsulting.com" className="text-[11px] sm:text-xs text-indigo-600 hover:text-indigo-700 transition break-all">
+                    info@biranuconsulting.com
                   </a>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 
 const stats = [
-  { value: '3+', label: 'Core Services' },
-  { value: 'UK', label: 'Headquartered' },
+  { value: 'UK', label: 'Europe & India' },
+  { value: 'Fast', label: 'Hiring Cycles' },
+  { value: '100%', label: 'Quality Focus' },
   { value: '24/7', label: 'Support' },
-  { value: '100%', label: 'Client Focus' },
 ]
 
 const Hero = () => {
@@ -12,15 +12,16 @@ const Hero = () => {
     <section className="relative bg-gradient-to-b from-blue-100 via-indigo-50 to-white border-b border-gray-200">
       <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 lg:py-14 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-1.5 bg-indigo-100/60 border border-indigo-200/50 rounded-full px-2.5 py-0.5 mb-3 sm:mb-4">
+          <span className="text-[10px] sm:text-xs font-medium text-indigo-700">Global IT Talent Solutions</span>
         </div>
 
         <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold leading-[1.15] mb-2 sm:mb-3 tracking-tight text-gray-900">
-          Connecting Technology,{' '}
-          <span className="text-indigo-600">Talent, and Trade</span>
+          Empowering Global IT Talent.{' '}
+          <span className="text-indigo-600">Delivering Local Impact.</span>
         </h1>
 
-        <p className="max-w-md mx-auto text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6 leading-relaxed">
-          Driving business excellence through IT Consulting, International Export, and Strategic HR Supply.
+        <p className="max-w-lg mx-auto text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6 leading-relaxed">
+          Connecting high-quality technology professionals with forward-thinking organizations across the UK, Europe, and India.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">

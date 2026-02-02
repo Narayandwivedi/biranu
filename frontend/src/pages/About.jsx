@@ -1,127 +1,182 @@
 import { Link } from 'react-router-dom'
 
-const values = [
-  {
-    title: 'Integrity',
-    desc: 'We prioritize honest, transparent relationships with every client we serve.',
-    icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-    color: 'from-blue-500 to-indigo-600',
-  },
-  {
-    title: 'Innovation',
-    desc: 'We embrace forward-thinking strategies to stay ahead in a dynamic market.',
-    icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    color: 'from-emerald-500 to-teal-600',
-  },
-  {
-    title: 'Excellence',
-    desc: 'We deliver bespoke solutions that meet the highest standards of quality.',
-    icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-      </svg>
-    ),
-    color: 'from-violet-500 to-purple-600',
-  },
-]
-
-const milestones = [
-  { icon: '01', title: 'IT Consulting', desc: 'Digital transformation & technical roadmaps' },
-  { icon: '02', title: 'International Export', desc: 'Global trade & supply chain management' },
-  { icon: '03', title: 'HR Supply', desc: 'Top-tier talent acquisition & workforce solutions' },
-]
-
 const About = () => {
   return (
     <>
-      {/* Header */}
-      <section className="bg-gradient-to-b from-blue-100 via-indigo-50 to-white border-b border-gray-200 py-10 sm:py-14 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Who We Are</span>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mt-2 mb-2 sm:mb-3 tracking-tight text-gray-900">About Us</h1>
-          <p className="text-gray-500 text-xs sm:text-base max-w-xl mx-auto">
-            Driving business excellence through innovation and execution.
-          </p>
+      {/* Hero */}
+      <section className="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.05%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 mb-4 sm:mb-6">
+              <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
+              <span className="text-[10px] sm:text-xs font-medium text-indigo-200">Global IT Talent Solutions Partner</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-tight">
+              Empowering Global IT Talent.
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Delivering Local Impact.</span>
+            </h1>
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+              We connect high-quality technology professionals with forward-thinking organizations across the UK, Europe, and India.
+            </p>
+          </div>
+        </div>
+        {/* Wave divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+            <path d="M0 60V20C240 50 480 0 720 20C960 40 1200 10 1440 30V60H0Z" fill="white"/>
+          </svg>
         </div>
       </section>
 
-      {/* Mission + Founder */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-white">
+      {/* Mission Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-14 items-start">
-            {/* Left - Mission */}
-            <div>
-              <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Our Mission</span>
-              <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-900 mt-2 mb-3 sm:mb-5">
-                Bridging Innovation and Execution
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+            {/* Main Content */}
+            <div className="lg:col-span-3">
+              <span className="inline-block text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">Our Mission</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-snug">
+                Bridging Business Needs and Exceptional IT Talent
               </h2>
-              <div className="space-y-3 sm:space-y-4 text-gray-600 text-xs sm:text-sm leading-relaxed">
+              <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Biranu Consulting, headquartered in the UK and led by <strong className="text-gray-900">Ambika Padhy</strong>, is a multi-disciplinary firm dedicated to driving business excellence across three strategic pillars.
+                  With deep expertise across the IT domain, we specialize in <strong className="text-gray-900">sourcing, vetting, and deploying</strong> skilled professionals who help businesses innovate, transform, and grow in an increasingly digital world.
                 </p>
                 <p>
-                  Our IT division empowers organizations through digital transformation and robust technical roadmaps. Our export wing facilitates seamless global trade, connecting quality products with international markets.
-                </p>
-                <p>
-                  Recognizing that people are a company's greatest asset, our HR supply services deliver top-tier talent tailored to your specific organizational needs.
+                  Our mission is simple: to bridge the gap between business needs and exceptional IT talent—<strong className="text-gray-900">quickly, reliably, and at scale.</strong>
                 </p>
               </div>
 
-              {/* Pillars mini list */}
-              <div className="mt-5 sm:mt-8 space-y-2.5 sm:space-y-3">
-                {milestones.map((m) => (
-                  <div key={m.icon} className="flex items-center gap-3 sm:gap-4 bg-gray-50 rounded-xl p-3 sm:p-4 border border-gray-100">
-                    <div className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-[10px] sm:text-xs font-bold">
-                      {m.icon}
+              {/* Stats Row */}
+              <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-gray-100">
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-indigo-600">3</div>
+                  <div className="text-xs sm:text-sm text-gray-500">Global Regions</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-indigo-600">6+</div>
+                  <div className="text-xs sm:text-sm text-gray-500">IT Domains</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-indigo-600">100%</div>
+                  <div className="text-xs sm:text-sm text-gray-500">Client Focus</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Founder Card */}
+            <div className="lg:col-span-2">
+              <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white shadow-xl shadow-indigo-200/50">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30 text-lg font-bold">
+                    AP
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Ambika Padhy</h3>
+                    <p className="text-xs text-indigo-200">Founder & Director</p>
+                  </div>
+                </div>
+                <blockquote className="text-sm sm:text-base leading-relaxed text-indigo-100 italic">
+                  "We don't just supply talent — we enable success. Our goal is to build long-term partnerships, delivering the right IT professionals to drive your business forward."
+                </blockquote>
+                <div className="mt-6 pt-5 border-t border-white/20 flex items-center gap-2">
+                  <svg className="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  </svg>
+                  <span className="text-xs text-indigo-200">UK Headquartered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="inline-block text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">What We Do</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">End-to-End IT Talent Services</h2>
+            <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
+              Tailored solutions to meet the evolving demands of modern enterprises.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {[
+              { icon: '01', title: 'Permanent & Contract Staffing', desc: 'Flexible hiring for long-term and project-based roles.' },
+              { icon: '02', title: 'Remote & Onsite Solutions', desc: 'Talent deployment tailored to your work environment.' },
+              { icon: '03', title: 'Project-Based Resources', desc: 'Managed resource models for specific project needs.' },
+              { icon: '04', title: 'Specialized IT Hiring', desc: 'Niche technical specialists across all IT domains.' },
+            ].map((item) => (
+              <div key={item.icon} className="bg-white rounded-xl p-5 sm:p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-indigo-100 transition-all duration-300">
+                <div className="w-10 h-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-sm font-bold mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Global Reach */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div>
+              <span className="inline-block text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">Global Reach</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Your Competitive Advantage</h2>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                Operating across the UK, Europe, and India, we combine local market understanding with global delivery capability.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { title: 'Diverse Talent Pool', desc: 'Access to pre-vetted professionals across multiple regions' },
+                  { title: 'Faster Hiring Cycles', desc: 'Accelerated recruitment with flexible engagement models' },
+                  { title: 'Cost-Effective Solutions', desc: 'Competitive pricing without compromising on quality' },
+                  { title: 'Seamless Collaboration', desc: 'Cultural and time-zone alignment for your teams' },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-3">
+                    <div className="shrink-0 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center mt-0.5">
+                      <svg className="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
                     </div>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-semibold text-gray-900">{m.title}</h4>
-                      <p className="text-[10px] sm:text-xs text-gray-500">{m.desc}</p>
+                      <h4 className="text-sm font-semibold text-gray-900">{item.title}</h4>
+                      <p className="text-xs sm:text-sm text-gray-500">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right - Founder card + quote */}
-            <div className="space-y-4 sm:space-y-6">
-              <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-5 sm:p-8 text-white">
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30">
-                    <span className="text-base sm:text-lg font-bold">AP</span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm sm:text-lg font-bold">Ambika Padhy</h3>
-                    <p className="text-[10px] sm:text-xs text-indigo-200 font-medium">Founder & Director</p>
-                  </div>
+            {/* Right - Visual */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white">
+                <div className="flex items-center gap-3 mb-6">
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <h3 className="text-lg font-bold">Our Regions</h3>
                 </div>
-                <blockquote className="text-[11px] sm:text-sm leading-relaxed italic text-indigo-100">
-                  "We pride ourselves on a leadership-driven approach that prioritizes integrity and bespoke solutions. Our goal is to connect businesses globally through technology, talent, and trade."
-                </blockquote>
-              </div>
-
-              <div className="bg-gray-50 rounded-2xl border border-gray-100 p-5 sm:p-6">
-                <h4 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3">Why Biranu?</h4>
-                <div className="space-y-2 sm:space-y-3">
+                <div className="space-y-4">
                   {[
-                    'Leadership-driven, client-first approach',
-                    'Bespoke solutions for every engagement',
-                    'Cross-domain expertise under one roof',
-                    'UK-headquartered with global reach',
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-[11px] sm:text-xs text-gray-600">{item}</span>
+                    { region: 'United Kingdom', flag: '🇬🇧', status: 'Headquarters' },
+                    { region: 'Europe', flag: '🇪🇺', status: 'Active Operations' },
+                    { region: 'India', flag: '🇮🇳', status: 'Talent Hub' },
+                  ].map((r) => (
+                    <div key={r.region} className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">{r.flag}</span>
+                        <span className="text-sm font-medium">{r.region}</span>
+                      </div>
+                      <span className="text-xs text-slate-400">{r.status}</span>
                     </div>
                   ))}
                 </div>
@@ -131,24 +186,53 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Our Foundation</span>
-            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mt-2 mb-2 sm:mb-3">Our Values</h2>
-            <p className="text-gray-500 text-xs sm:text-sm max-w-md mx-auto">
-              The principles that guide everything we do.
+      {/* Why Partner */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-indigo-600">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="inline-block text-xs font-bold text-indigo-200 uppercase tracking-widest mb-2">Why Partner With Us</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">We Enable Success</h2>
+            <p className="text-indigo-100 text-sm sm:text-base max-w-xl mx-auto">
+              Long-term partnerships, not just placements.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {values.map((v) => (
-              <div key={v.title} className="bg-white rounded-2xl border border-gray-100 p-5 sm:p-7 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${v.color} text-white mb-3 sm:mb-4 shadow-lg`}>
-                  {v.icon}
-                </div>
-                <h3 className="text-sm sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2">{v.title}</h3>
-                <p className="text-gray-500 text-[11px] sm:text-sm leading-relaxed">{v.desc}</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {[
+              { title: 'Quality-Driven', desc: 'Rigorous vetting for the best IT professionals' },
+              { title: 'Client-Centric', desc: 'Transparent engagement focused on your needs' },
+              { title: 'Scalable', desc: 'Flexible models that grow with your business' },
+              { title: 'Partnership', desc: 'Building lasting relationships that matter' },
+            ].map((item) => (
+              <div key={item.title} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 text-center hover:bg-white/20 transition-colors">
+                <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-indigo-100">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="inline-block text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">Expertise</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">IT Domains We Cover</h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            {[
+              { name: 'Software Dev', icon: '💻' },
+              { name: 'Cloud & DevOps', icon: '☁️' },
+              { name: 'Data & AI', icon: '📊' },
+              { name: 'Cybersecurity', icon: '🔒' },
+              { name: 'Enterprise Apps', icon: '🏢' },
+              { name: 'QA & Testing', icon: '✅' },
+            ].map((d) => (
+              <div key={d.name} className="bg-slate-50 rounded-xl p-4 text-center hover:bg-indigo-50 hover:shadow-md transition-all cursor-default">
+                <div className="text-2xl mb-2">{d.icon}</div>
+                <div className="text-xs sm:text-sm font-medium text-gray-700">{d.name}</div>
               </div>
             ))}
           </div>
@@ -156,19 +240,19 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-10 sm:py-14 bg-indigo-600 text-white text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">Work With Us</h2>
-          <p className="text-indigo-100 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
-            Let us help you navigate today's complex business landscape with tailored solutions.
+      <section className="py-12 sm:py-16 bg-slate-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3">Let's Build the Future, Together</h2>
+          <p className="text-slate-300 text-sm sm:text-base mb-6 max-w-2xl mx-auto">
+            Whether you're scaling your team, launching a new project, or transforming your IT landscape — we're here to help.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-1.5 bg-white text-indigo-700 font-semibold px-5 sm:px-7 py-1.5 sm:py-2 rounded-full hover:bg-indigo-50 transition text-xs sm:text-sm shadow-md"
+            className="inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-indigo-700 transition text-sm shadow-lg shadow-indigo-500/30"
           >
             Get in Touch
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
