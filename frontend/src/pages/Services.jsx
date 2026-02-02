@@ -195,14 +195,18 @@ const Services = () => {
               Our talent ecosystem spans a wide range of technologies and roles.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {expertise.map((e) => (
-              <div key={e.title} className="bg-gray-50 rounded-2xl border border-gray-100 p-5 sm:p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${e.color} text-white mb-3 sm:mb-4 shadow-lg`}>
-                  {e.icon}
+              <div key={e.title} className="bg-gray-50 rounded-xl border border-gray-100 p-3 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="flex items-start gap-2 sm:gap-4">
+                  <div className={`shrink-0 w-7 h-7 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${e.color} text-white flex items-center justify-center shadow-sm`}>
+                    {e.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-[10px] sm:text-base font-bold text-gray-900">{e.title}</h3>
+                  </div>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2">{e.title}</h3>
-                <p className="text-gray-500 text-[11px] sm:text-sm leading-relaxed">{e.desc}</p>
+                <p className="text-gray-500 text-[10px] sm:text-sm leading-relaxed mt-2 sm:mt-4">{e.desc}</p>
               </div>
             ))}
           </div>
