@@ -117,11 +117,11 @@ const Services = () => {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-indigo-50 via-white to-white border-b border-gray-100 py-10 sm:py-14 lg:py-16">
+      <section className="bg-gradient-to-b from-indigo-50 via-white to-white border-b border-gray-100 pb-4 sm:pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">What We Do</span>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mt-2 mb-2 sm:mb-3 tracking-tight text-gray-900">Our Services</h1>
-          <p className="text-gray-500 text-xs sm:text-base max-w-2xl mx-auto">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mt-1.5 mb-1.5 tracking-tight text-gray-900">Our Services</h1>
+          <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto">
             We provide end-to-end IT talent supply services, tailored to meet the evolving demands of modern enterprises. From niche technical specialists to large-scale team augmentation, we ensure the right talent is available at the right time.
           </p>
         </div>
@@ -139,12 +139,16 @@ const Services = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {serviceTypes.map((s) => (
-              <div key={s.title} className="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${s.color} text-white mb-3 sm:mb-4 shadow-lg`}>
-                  {s.icon}
+              <div key={s.title} className="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className={`shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${s.color} text-white flex items-center justify-center shadow-md`}>
+                    {s.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900">{s.title}</h3>
+                  </div>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2">{s.title}</h3>
-                <p className="text-gray-500 text-[11px] sm:text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-gray-500 text-[11px] sm:text-sm leading-relaxed mt-3 sm:mt-4">{s.desc}</p>
               </div>
             ))}
           </div>
