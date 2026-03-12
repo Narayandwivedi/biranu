@@ -69,11 +69,7 @@ const About = () => {
             <div className="lg:col-span-2">
               <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white shadow-xl shadow-indigo-200/50">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30 text-lg font-bold">
-                    AP
-                  </div>
                   <div>
-                    <h3 className="text-lg font-bold">Ambika Padhy</h3>
                     <p className="text-xs text-indigo-200">Founder & Director</p>
                   </div>
                 </div>

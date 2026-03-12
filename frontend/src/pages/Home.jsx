@@ -113,12 +113,8 @@ const Home = () => {
                 <blockquote className="text-xs sm:text-sm lg:text-base leading-relaxed italic opacity-90">
                   "We bridge the gap between business needs and exceptional IT talent—quickly, reliably, and at scale. Long-term partnerships, not just placements."
                 </blockquote>
-                <div className="mt-4 sm:mt-6 flex items-center gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center">
-                    <span className="text-xs sm:text-sm font-bold">AP</span>
-                  </div>
+                <div className="mt-4 sm:mt-6">
                   <div>
-                    <div className="text-xs sm:text-sm font-semibold">Ambika Padhy</div>
                     <div className="text-[10px] sm:text-xs text-indigo-200">Founder & Director</div>
                   </div>
                 </div>
