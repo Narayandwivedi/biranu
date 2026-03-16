@@ -59,11 +59,6 @@ const Footer = () => {
                   info@biranuconsulting.com
                 </a>
               </li>
-              <li>
-                <a href="tel:+447850409469" className="hover:text-white transition-colors">
-                  +44 7850 409469
-                </a>
-              </li>
             </ul>
           </div>
         </div>
