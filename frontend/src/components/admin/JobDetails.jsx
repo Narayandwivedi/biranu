@@ -66,9 +66,11 @@ const JobDetails = ({ jobId, onBack }) => {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="p-4 bg-gray-50 border-b border-gray-100 flex justify-between items-center">
-          <h3 className="font-bold text-gray-900">Applications ({applications.length})</h3>
+          <h3 className="font-bold text-gray-900 text-sm sm:text-base">Applications ({(applications || []).length})</h3>
         </div>
-        <div className="overflow-x-auto">
+        
+        {/* Desktop Table View */}
+        <div className="hidden lg:block overflow-x-auto">
           <table className="w-full text-left">
             <thead>
               <tr className="bg-gray-50/50 text-xs text-gray-500 uppercase">
@@ -101,14 +103,42 @@ const JobDetails = ({ jobId, onBack }) => {
                   </td>
                 </tr>
               ))}
-              {applications.length === 0 && (
-                <tr>
-                  <td colSpan="4" className="px-6 py-8 text-center text-gray-400 italic">No applications received yet.</td>
-                </tr>
-              )}
             </tbody>
           </table>
         </div>
+
+        {/* Mobile Card View */}
+        <div className="lg:hidden divide-y divide-gray-100">
+          {(applications || []).map(app => (
+            <div key={app._id} className="p-4 space-y-3">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h4 className="font-bold text-gray-900">{app.studentName}</h4>
+                  <p className="text-xs text-gray-500">{app.studentEmail}</p>
+                </div>
+                <span className="text-[10px] text-gray-400 font-medium bg-gray-50 px-2 py-1 rounded">
+                  {new Date(app.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+              
+              <a 
+                href={`${import.meta.env.VITE_API_URL}/${app.resumeUrl.replace(/\\/g, '/')}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full bg-blue-50 text-blue-600 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-blue-100 transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                Open Resume
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {(applications || []).length === 0 && (
+          <div className="px-6 py-8 text-center text-gray-400 italic">No applications received yet.</div>
+        )}
       </div>
     </div>
   );

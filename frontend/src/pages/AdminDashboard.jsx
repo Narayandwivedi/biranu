@@ -13,6 +13,7 @@ const AdminDashboard = () => {
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [editingJob, setEditingJob] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem('adminToken');
 
@@ -23,6 +24,11 @@ const AdminDashboard = () => {
       fetchJobs();
     }
   }, [token]);
+
+  // Close sidebar on navigation on mobile
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [activeTab]);
 
   const fetchJobs = async () => {
     const API_URL = import.meta.env.VITE_API_URL;
@@ -88,19 +94,35 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} onLogout={handleLogout} />
+    <div className="flex min-h-screen bg-gray-50 overflow-x-hidden">
+      <Sidebar 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab} 
+        onLogout={handleLogout}
+        isOpen={isSidebarOpen}
+        setIsOpen={setIsSidebarOpen}
+      />
       
-      <main className="flex-1 p-8 overflow-y-auto">
+      <main className="flex-1 p-4 sm:p-8 overflow-y-auto">
         <header className="mb-8 flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900 capitalize">
-              {activeTab === 'manage' ? 'Manage Job Listings' : activeTab === 'vacancies' ? 'Vacancy Wise Posts' : 'Job Details'}
-            </h1>
-            <p className="text-gray-500 text-sm">Welcome back, Admin!</p>
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setIsSidebarOpen(true)}
+              className="lg:hidden p-2 bg-white rounded-lg shadow-sm border border-gray-100 text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <div>
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
+                {activeTab === 'manage' ? 'Manage Job Listings' : activeTab === 'vacancies' ? 'Vacancy Wise Posts' : 'Job Details'}
+              </h1>
+              <p className="text-gray-500 text-[10px] sm:text-sm">Welcome back, Admin!</p>
+            </div>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm sm:text-base">
               A
             </div>
           </div>

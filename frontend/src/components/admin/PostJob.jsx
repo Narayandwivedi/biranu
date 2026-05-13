@@ -150,18 +150,18 @@ const PostJob = ({ jobToEdit, onCancel, onSuccess }) => {
           />
         </div>
 
-        <div className="pt-4 flex items-center justify-end space-x-3">
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-end space-y-3 sm:space-y-0 sm:space-x-3">
           <button
             type="button"
             onClick={onCancel}
-            className="px-6 py-2 text-sm text-gray-500 font-bold hover:text-gray-700 transition-colors"
+            className="w-full sm:w-auto px-6 py-2 text-sm text-gray-500 font-bold hover:text-gray-700 transition-colors order-2 sm:order-1"
           >
             Cancel
           </button>
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`px-8 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl font-bold shadow-lg shadow-blue-600/20 transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`w-full sm:w-auto px-8 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl font-bold shadow-lg shadow-blue-600/20 transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''} order-1 sm:order-2`}
           >
             {isSubmitting ? 'Saving...' : jobToEdit ? 'Update' : 'Publish'}
           </button>
