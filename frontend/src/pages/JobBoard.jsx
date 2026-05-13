@@ -60,57 +60,68 @@ const JobBoard = () => {
           <p className="text-gray-500 text-sm">Join our global team of IT professionals</p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6">
           {(jobs || []).map(job => (
-            <div key={job._id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
+            <div key={job._id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 p-5 sm:p-6 group">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div className="flex-1 space-y-3">
+                  {/* Title & Company */}
                   <div>
-                    <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{job.title}</h2>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="text-blue-600 text-[10px] font-bold uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded">{job.category}</span>
-                      <span className="text-gray-400 text-[10px] flex items-center">
-                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        </svg>
-                        {job.location}
+                    <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors cursor-pointer" onClick={() => setSelectedJob(job)}>
+                      {job.title}
+                    </h2>
+                    <p className="text-sm font-semibold text-gray-600 mt-0.5">Biranu Consulting</p>
+                  </div>
+
+                  {/* Horizontal Stats/Details */}
+                  <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-[13px] text-gray-500">
+                    <div className="flex items-center">
+                      <svg className="w-4 h-4 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <span>0-3 Years</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="font-bold mr-1 text-gray-400 uppercase text-[10px]">Salary:</span>
+                      <span className="font-medium text-gray-700">{job.salary}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="font-bold mr-1 text-gray-400 uppercase text-[10px]">Location:</span>
+                      <span className="font-medium text-gray-700">{job.location}</span>
+                    </div>
+                  </div>
+
+                  {/* Description Snippet */}
+                  <div className="flex items-start gap-2 pt-1">
+                    <svg className="w-4 h-4 mt-1 text-gray-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <p className="text-sm text-gray-500 line-clamp-1 italic">
+                      <span className="font-bold text-gray-400 not-italic mr-1 uppercase text-[10px]">Description:</span>
+                      {job.description}
+                    </p>
+                  </div>
+
+                  {/* Requirements/Skills */}
+                  <div className="flex flex-wrap items-center gap-2 pt-1">
+                    <span className="font-bold text-gray-400 uppercase text-[10px] mr-1">Skills:</span>
+                    {(job.requirements || []).map((req, i) => (
+                      <span key={i} className="text-[12px] text-gray-500 flex items-center after:content-['•'] after:ml-2 last:after:content-none">
+                        {req}
                       </span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Description</h4>
-                    <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed">{job.description}</p>
-                  </div>
-
-                  <div>
-                    <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Salary Package</h4>
-                    <p className="text-sm font-bold text-gray-900">{job.salary}</p>
-                  </div>
-
-                  <div>
-                    <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Key Requirements</h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {(job.requirements || []).slice(0, 4).map((req, i) => (
-                        <span key={i} className="bg-gray-50 text-gray-600 text-[10px] px-2.5 py-1 rounded-lg border border-gray-100 font-medium">{req}</span>
-                      ))}
-                      {(job.requirements || []).length > 4 && (
-                        <span className="text-[10px] text-gray-400 font-medium px-1">
-                          +{(job.requirements || []).length - 4} more
-                        </span>
-                      )}
-                    </div>
+                    ))}
                   </div>
                 </div>
 
-                <button
-                  onClick={() => setSelectedJob(job)}
-                  className="w-full mt-6 bg-blue-600 text-white py-3 rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 active:scale-[0.98]"
-                >
-                  Apply Now
-                </button>
+                {/* Apply Button */}
+                <div className="sm:pt-2">
+                  <button
+                    onClick={() => setSelectedJob(job)}
+                    className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl text-sm font-bold transition-all shadow-lg shadow-blue-600/20 active:scale-95"
+                  >
+                    Apply Now
+                  </button>
+                </div>
               </div>
             </div>
           ))}
