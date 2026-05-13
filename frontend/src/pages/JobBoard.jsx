@@ -60,7 +60,7 @@ const JobBoard = () => {
           <p className="text-gray-500 text-sm">Join our global team of IT professionals</p>
         </header>
 
-        <div className="grid grid-cols-1 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {(jobs || []).map(job => (
             <div key={job._id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 p-5 sm:p-6 group">
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
