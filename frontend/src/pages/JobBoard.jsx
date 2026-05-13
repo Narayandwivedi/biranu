@@ -51,36 +51,38 @@ const JobBoard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-4xl mx-auto">
-        <header className="mb-12 text-center">
-          <h1 className="text-4xl font-extrabold text-blue-800 mb-2">Biranu Career Portal</h1>
-          <p className="text-gray-600 text-lg">Find your dream job and apply today</p>
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-8">
+      <div className="max-w-7xl mx-auto">
+        <header className="mb-8 text-center">
+          <h1 className="text-2xl font-black text-blue-900 mb-1">Biranu Careers</h1>
+          <p className="text-gray-500 text-sm">Join our global team of IT professionals</p>
         </header>
 
-        <div className="grid gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.map(job => (
-            <div key={job._id} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition">
-              <div className="flex justify-between items-start">
+            <div key={job._id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+              <div className="flex justify-between items-start mb-2">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-1">{job.title}</h2>
-                  <p className="text-blue-600 font-semibold mb-2">{job.category} • {job.location}</p>
+                  <h2 className="text-lg font-bold text-gray-900">{job.title}</h2>
+                  <p className="text-blue-600 text-[11px] font-bold uppercase tracking-wider">{job.category} • {job.location}</p>
                 </div>
-                <div className="text-right">
-                  <span className="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">{job.salary}</span>
-                </div>
+                <span className="bg-blue-50 text-blue-700 text-[10px] font-black px-2 py-1 rounded-lg uppercase">{job.salary}</span>
               </div>
-              <p className="text-gray-600 mb-4 line-clamp-3">{job.description}</p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {job.requirements.map((req, i) => (
-                  <span key={i} className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">{req}</span>
+              
+              <p className="text-xs text-gray-500 line-clamp-2 mb-3">{job.description}</p>
+              
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {job.requirements.slice(0, 3).map((req, i) => (
+                  <span key={i} className="bg-gray-50 text-gray-500 text-[10px] px-2 py-0.5 rounded border border-gray-100">{req}</span>
                 ))}
+                {job.requirements.length > 3 && <span className="text-[10px] text-gray-400">+{job.requirements.length - 3} more</span>}
               </div>
+
               <button
                 onClick={() => setSelectedJob(job)}
-                className="w-full bg-blue-600 text-white py-2 rounded-lg font-bold hover:bg-blue-700 transition"
+                className="w-full bg-blue-600 text-white py-2 rounded-lg text-xs font-bold hover:bg-blue-700 transition-colors shadow-sm"
               >
-                Apply Now
+                Apply for this Position
               </button>
             </div>
           ))}
