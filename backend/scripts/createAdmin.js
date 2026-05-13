@@ -12,7 +12,7 @@ const rl = readline.createInterface({
 const createAdmin = async () => {
   try {
     // Connect to Database
-    await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/biranu_jobboard');
+    await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/biranu');
     console.log('Connected to MongoDB...');
 
     rl.question('Enter Admin Email: ', async (email) => {
@@ -43,7 +43,7 @@ const createAdmin = async () => {
 
         await newAdmin.save();
         console.log(`\nSuccess! Admin created with email: ${email}`);
-        
+
         await mongoose.connection.close();
         rl.close();
         process.exit(0);
