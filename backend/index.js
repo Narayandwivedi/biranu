@@ -19,7 +19,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/jobs', jobRoutes);
 
 // Database Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/biranu_jobboard')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/biranu')
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
 
