@@ -62,7 +62,7 @@ const ManageJobs = ({ jobs, fetchJobs, onViewDetails, onEdit }) => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-50">
-            {jobs.map((job) => (
+            {(jobs || []).map((job) => (
               <tr key={job._id} className="hover:bg-gray-50/50 transition-colors group">
                 <td className="px-6 py-4">
                   <div className="flex flex-col">

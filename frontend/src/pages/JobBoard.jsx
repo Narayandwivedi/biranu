@@ -20,9 +20,10 @@ const JobBoard = () => {
   const fetchJobs = async () => {
     try {
       const res = await axios.get(`${API_URL}/api/jobs`);
-      setJobs(res.data);
+      setJobs(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error('Failed to fetch jobs');
+      setJobs([]);
     }
   };
 
@@ -60,7 +61,7 @@ const JobBoard = () => {
         </header>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {jobs.map(job => (
+          {(jobs || []).map(job => (
             <div key={job._id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
               <div className="flex justify-between items-start mb-2">
                 <div>
@@ -73,10 +74,10 @@ const JobBoard = () => {
               <p className="text-xs text-gray-500 line-clamp-2 mb-3">{job.description}</p>
               
               <div className="flex flex-wrap gap-1.5 mb-4">
-                {job.requirements.slice(0, 3).map((req, i) => (
+                {(job.requirements || []).slice(0, 3).map((req, i) => (
                   <span key={i} className="bg-gray-50 text-gray-500 text-[10px] px-2 py-0.5 rounded border border-gray-100">{req}</span>
                 ))}
-                {job.requirements.length > 3 && <span className="text-[10px] text-gray-400">+{job.requirements.length - 3} more</span>}
+                {(job.requirements || []).length > 3 && <span className="text-[10px] text-gray-400">+{(job.requirements || []).length - 3} more</span>}
               </div>
 
               <button
@@ -87,8 +88,8 @@ const JobBoard = () => {
               </button>
             </div>
           ))}
-          {jobs.length === 0 && (
-            <div className="text-center py-20 bg-white rounded-xl shadow-sm">
+          {(jobs || []).length === 0 && (
+            <div className="text-center py-20 bg-white rounded-xl shadow-sm w-full col-span-full">
               <p className="text-gray-500 text-xl">No jobs available at the moment. Check back later!</p>
             </div>
           )}

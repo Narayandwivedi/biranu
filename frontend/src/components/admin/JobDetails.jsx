@@ -57,7 +57,7 @@ const JobDetails = ({ jobId, onBack }) => {
           
           <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mt-4 mb-2">Requirements</h3>
           <ul className="list-disc list-inside space-y-1">
-            {job.requirements.map((req, i) => (
+            {(job.requirements || []).map((req, i) => (
               <li key={i}>{req}</li>
             ))}
           </ul>
@@ -79,7 +79,7 @@ const JobDetails = ({ jobId, onBack }) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
-              {applications.map(app => (
+              {(applications || []).map(app => (
                 <tr key={app._id} className="text-sm text-gray-600 hover:bg-gray-50/30 transition-colors">
                   <td className="px-6 py-4 font-medium text-gray-900">{app.studentName}</td>
                   <td className="px-6 py-4">{app.studentEmail}</td>

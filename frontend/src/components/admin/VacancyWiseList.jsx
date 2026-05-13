@@ -3,7 +3,7 @@ import React from 'react';
 const VacancyWiseList = ({ jobs, onViewDetails }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {jobs.map((job) => (
+      {(jobs || []).map((job) => (
         <div 
           key={job._id} 
           onClick={() => onViewDetails(job._id)}

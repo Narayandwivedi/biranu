@@ -22,7 +22,7 @@ const PostJob = ({ jobToEdit, onCancel, onSuccess }) => {
         category: jobToEdit.category,
         salary: jobToEdit.salary,
         location: jobToEdit.location,
-        requirements: jobToEdit.requirements.join(', ')
+        requirements: Array.isArray(jobToEdit.requirements) ? jobToEdit.requirements.join(', ') : ''
       });
     }
   }, [jobToEdit]);

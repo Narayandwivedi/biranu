@@ -30,9 +30,10 @@ const AdminDashboard = () => {
       const res = await axios.get(`${API_URL}/api/admin/jobs`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setJobs(res.data);
+      setJobs(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
+      setJobs([]);
     }
   };
 
