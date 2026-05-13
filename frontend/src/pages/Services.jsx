@@ -117,23 +117,23 @@ const Services = () => {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-indigo-50 via-white to-white border-b border-gray-100 pb-4 sm:pb-8">
+      <section className="bg-gradient-to-b from-indigo-50 via-white to-white border-b border-gray-100 pt-4 pb-2 sm:pt-8 sm:pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">What We Do</span>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold mt-1.5 mb-1.5 tracking-tight text-gray-900">Our Services</h1>
-          <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto">
+          <h1 className="text-xl sm:text-3xl font-extrabold mt-1 mb-1 tracking-tight text-gray-900">Our Services</h1>
+          <p className="text-gray-500 text-[10px] sm:text-sm max-w-xl mx-auto">
             We provide end-to-end IT talent supply services, tailored to meet the evolving demands of modern enterprises. From niche technical specialists to large-scale team augmentation, we ensure the right talent is available at the right time.
           </p>
         </div>
       </section>
 
       {/* Service Types */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-white">
+      <section className="py-6 sm:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Talent Solutions</span>
-            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mt-2 mb-2 sm:mb-3">How We Help</h2>
-            <p className="text-gray-500 text-xs sm:text-sm max-w-lg mx-auto">
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="text-[10px] font-semibold text-indigo-600 uppercase tracking-widest">Talent Solutions</span>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 mt-1 mb-1">How We Help</h2>
+            <p className="text-gray-500 text-[10px] sm:text-xs max-w-lg mx-auto">
               Flexible engagement models designed for your unique business needs.
             </p>
           </div>
@@ -145,10 +145,10 @@ const Services = () => {
                     {s.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-[10px] sm:text-base font-bold text-gray-900">{s.title}</h3>
+                    <h3 className="text-[10px] sm:text-sm font-bold text-gray-900">{s.title}</h3>
                   </div>
                 </div>
-                <p className="text-gray-500 text-[10px] sm:text-sm leading-relaxed mt-2 sm:mt-4">{s.desc}</p>
+                <p className="text-gray-500 text-[10px] sm:text-xs leading-relaxed mt-2 sm:mt-4">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -156,12 +156,12 @@ const Services = () => {
       </section>
 
       {/* Global Reach */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+      <section className="py-6 sm:py-12 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs font-semibold text-gray-300 uppercase tracking-widest">Global Reach</span>
-            <h2 className="text-xl sm:text-3xl font-bold mt-2 mb-2 sm:mb-3">Your Competitive Advantage</h2>
-            <p className="text-gray-300 text-xs sm:text-sm max-w-lg mx-auto">
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="text-[10px] font-semibold text-gray-300 uppercase tracking-widest">Global Reach</span>
+            <h2 className="text-lg sm:text-xl font-bold mt-1 mb-1">Your Competitive Advantage</h2>
+            <p className="text-gray-300 text-[10px] sm:text-xs max-w-lg mx-auto">
               Operating across the UK, Europe, and India, we combine local market understanding with global delivery capability.
             </p>
           </div>
@@ -175,10 +175,10 @@ const Services = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-[10px] sm:text-base font-bold text-gray-900">{a.title}</h3>
+                    <h3 className="text-[10px] sm:text-sm font-bold text-gray-900">{a.title}</h3>
                   </div>
                 </div>
-                <p className="text-gray-600 text-[10px] sm:text-sm leading-relaxed mt-2">{a.desc}</p>
+                <p className="text-gray-600 text-[10px] sm:text-xs leading-relaxed mt-2">{a.desc}</p>
               </div>
             ))}
           </div>
@@ -186,12 +186,12 @@ const Services = () => {
       </section>
 
       {/* IT Expertise */}
-      <section className="py-10 sm:py-16 lg:py-20 bg-gray-50">
+      <section className="py-6 sm:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs font-semibold text-indigo-600 uppercase tracking-widest">Expertise Across IT</span>
-            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mt-2 mb-2 sm:mb-3">Our Talent Ecosystem</h2>
-            <p className="text-gray-500 text-xs sm:text-sm max-w-lg mx-auto">
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="text-[10px] font-semibold text-indigo-600 uppercase tracking-widest">Expertise Across IT</span>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 mt-1 mb-1">Our Talent Ecosystem</h2>
+            <p className="text-gray-500 text-[10px] sm:text-xs max-w-lg mx-auto">
               Our talent ecosystem spans a wide range of technologies and roles.
             </p>
           </div>
@@ -203,10 +203,10 @@ const Services = () => {
                     {e.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-[10px] sm:text-base font-bold text-gray-900">{e.title}</h3>
+                    <h3 className="text-[10px] sm:text-sm font-bold text-gray-900">{e.title}</h3>
                   </div>
                 </div>
-                <p className="text-gray-500 text-[10px] sm:text-sm leading-relaxed mt-2 sm:mt-4">{e.desc}</p>
+                <p className="text-gray-500 text-[10px] sm:text-xs leading-relaxed mt-2 sm:mt-4">{e.desc}</p>
               </div>
             ))}
           </div>
@@ -216,8 +216,8 @@ const Services = () => {
       {/* CTA */}
       <section className="py-10 sm:py-16 bg-white">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Let's Build the Future, Together</h2>
-          <p className="text-gray-500 text-xs sm:text-sm mb-5 sm:mb-6">
+          <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-1.5">Let's Build the Future, Together</h2>
+          <p className="text-gray-500 text-[10px] sm:text-xs mb-4 sm:mb-5">
             Whether you're scaling your team, launching a new project, or transforming your IT landscape, we're here to support you with the talent that drives results.
           </p>
           <Link
