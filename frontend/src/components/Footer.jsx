@@ -26,7 +26,9 @@ const Footer = () => {
                 { to: '/', label: 'Home' },
                 { to: '/about', label: 'About Us' },
                 { to: '/services', label: 'Services' },
+                { to: '/jobs', label: 'Careers' },
                 { to: '/contact', label: 'Contact' },
+                { to: '/admin/login', label: 'Admin Login' },
               ].map((l) => (
                 <li key={l.to}>
                   <Link to={l.to} className="text-[11px] sm:text-xs hover:text-white transition-colors">
