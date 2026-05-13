@@ -60,37 +60,64 @@ const JobBoard = () => {
           <p className="text-gray-500 text-sm">Join our global team of IT professionals</p>
         </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {(jobs || []).map(job => (
-            <div key={job._id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900">{job.title}</h2>
-                  <p className="text-blue-600 text-[11px] font-bold uppercase tracking-wider">{job.category} • {job.location}</p>
+            <div key={job._id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{job.title}</h2>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-blue-600 text-[10px] font-bold uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded">{job.category}</span>
+                      <span className="text-gray-400 text-[10px] flex items-center">
+                        <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        </svg>
+                        {job.location}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <span className="bg-blue-50 text-blue-700 text-[10px] font-black px-2 py-1 rounded-lg uppercase">{job.salary}</span>
-              </div>
-              
-              <p className="text-xs text-gray-500 line-clamp-2 mb-3">{job.description}</p>
-              
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {(job.requirements || []).slice(0, 3).map((req, i) => (
-                  <span key={i} className="bg-gray-50 text-gray-500 text-[10px] px-2 py-0.5 rounded border border-gray-100">{req}</span>
-                ))}
-                {(job.requirements || []).length > 3 && <span className="text-[10px] text-gray-400">+{(job.requirements || []).length - 3} more</span>}
-              </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Description</h4>
+                    <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed">{job.description}</p>
+                  </div>
 
-              <button
-                onClick={() => setSelectedJob(job)}
-                className="w-full bg-blue-600 text-white py-2 rounded-lg text-xs font-bold hover:bg-blue-700 transition-colors shadow-sm"
-              >
-                Apply for this Position
-              </button>
+                  <div>
+                    <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Salary Package</h4>
+                    <p className="text-sm font-bold text-gray-900">{job.salary}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Key Requirements</h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {(job.requirements || []).slice(0, 4).map((req, i) => (
+                        <span key={i} className="bg-gray-50 text-gray-600 text-[10px] px-2.5 py-1 rounded-lg border border-gray-100 font-medium">{req}</span>
+                      ))}
+                      {(job.requirements || []).length > 4 && (
+                        <span className="text-[10px] text-gray-400 font-medium px-1">
+                          +{(job.requirements || []).length - 4} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setSelectedJob(job)}
+                  className="w-full mt-6 bg-blue-600 text-white py-3 rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 active:scale-[0.98]"
+                >
+                  Apply Now
+                </button>
+              </div>
             </div>
           ))}
           {(jobs || []).length === 0 && (
-            <div className="text-center py-20 bg-white rounded-xl shadow-sm w-full col-span-full">
-              <p className="text-gray-500 text-xl">No jobs available at the moment. Check back later!</p>
+            <div className="text-center py-24 bg-white rounded-3xl shadow-sm w-full col-span-full border-2 border-dashed border-gray-100">
+              <p className="text-gray-400 text-xl font-medium">No job vacancies currently available.</p>
+              <p className="text-gray-400 text-sm mt-2">Please check back later!</p>
             </div>
           )}
         </div>
