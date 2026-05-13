@@ -9,9 +9,10 @@ const AdminLogin = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', { email, password });
+      const res = await axios.post(`${API_URL}/api/admin/login`, { email, password });
       localStorage.setItem('adminToken', res.data.token);
       toast.success('Logged in successfully!');
       navigate('/admin/dashboard');
@@ -55,8 +56,9 @@ const AdminLogin = () => {
         <div className="mt-4 text-center">
           <button 
             onClick={async () => {
+              const API_URL = import.meta.env.VITE_API_URL;
               try {
-                const res = await axios.post('http://localhost:5000/api/admin/seed');
+                const res = await axios.post(`${API_URL}/api/admin/seed`);
                 toast.success(res.data.message);
               } catch (err) {
                 toast.error(err.response?.data?.message || 'Seed failed');

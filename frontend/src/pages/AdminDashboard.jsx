@@ -25,8 +25,9 @@ const AdminDashboard = () => {
   }, [token]);
 
   const fetchJobs = async () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/jobs', {
+      const res = await axios.get(`${API_URL}/api/admin/jobs`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setJobs(res.data);

@@ -4,10 +4,11 @@ import { toast } from 'react-toastify';
 
 const ManageJobs = ({ jobs, fetchJobs, onViewDetails, onEdit }) => {
   const token = localStorage.getItem('adminToken');
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const toggleStatus = async (id, currentStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/admin/jobs/${id}`, 
+      await axios.put(`${API_URL}/api/admin/jobs/${id}`, 
         { isActive: !currentStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -21,7 +22,7 @@ const ManageJobs = ({ jobs, fetchJobs, onViewDetails, onEdit }) => {
   const deleteJob = async (id) => {
     if (!window.confirm('Are you sure you want to delete this job and all its applications?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/admin/jobs/${id}`, {
+      await axios.delete(`${API_URL}/api/admin/jobs/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('Job deleted successfully');

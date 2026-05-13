@@ -12,8 +12,9 @@ const JobDetails = ({ jobId, onBack }) => {
   }, [jobId]);
 
   const fetchJobDetails = async () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const res = await axios.get(`http://localhost:5000/api/admin/jobs/${jobId}`, {
+      const res = await axios.get(`${API_URL}/api/admin/jobs/${jobId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setData(res.data);
@@ -84,7 +85,7 @@ const JobDetails = ({ jobId, onBack }) => {
                   <td className="px-6 py-4">{app.studentEmail}</td>
                   <td className="px-6 py-4">
                     <a 
-                      href={`http://localhost:5000/${app.resumeUrl.replace(/\\/g, '/')}`} 
+                      href={`${import.meta.env.VITE_API_URL}/${app.resumeUrl.replace(/\\/g, '/')}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-blue-600 hover:underline inline-flex items-center font-medium"

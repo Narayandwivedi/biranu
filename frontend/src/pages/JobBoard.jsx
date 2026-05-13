@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const JobBoard = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const JobBoard = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/jobs');
+      const res = await axios.get(`${API_URL}/api/jobs`);
       setJobs(res.data);
     } catch (err) {
       console.error('Failed to fetch jobs');
@@ -37,7 +38,7 @@ const JobBoard = () => {
     data.append('jobId', selectedJob._id);
 
     try {
-      await axios.post('http://localhost:5000/api/jobs/apply', data, {
+      await axios.post(`${API_URL}/api/jobs/apply`, data, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       toast.success('Application submitted successfully!');

@@ -28,16 +28,17 @@ const PostJob = ({ jobToEdit, onCancel, onSuccess }) => {
   }, [jobToEdit]);
 
   const handleSubmit = async (e) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     e.preventDefault();
     setIsSubmitting(true);
     try {
       if (jobToEdit) {
-        await axios.put(`http://localhost:5000/api/admin/jobs/${jobToEdit._id}`, formData, {
+        await axios.put(`${API_URL}/api/admin/jobs/${jobToEdit._id}`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         });
         toast.success('Job updated successfully!');
       } else {
-        await axios.post('http://localhost:5000/api/admin/jobs', formData, {
+        await axios.post(`${API_URL}/api/admin/jobs`, formData, {
           headers: { Authorization: `Bearer ${token}` }
         });
         toast.success('Job posted successfully!');
