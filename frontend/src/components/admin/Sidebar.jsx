@@ -49,8 +49,19 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isOpen, setIsOpen }) => {
             </svg>
           </button>
         </div>
+        <div className="p-4 border-b border-gray-800/50 mt-2">
+          <button
+            onClick={onLogout}
+            className="w-full flex items-center space-x-3 px-4 py-3 text-gray-400 hover:bg-red-500/10 hover:text-red-500 rounded-xl transition-all duration-300 border border-gray-800/30"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span className="font-semibold text-sm">Sign Out</span>
+          </button>
+        </div>
         
-        <nav className="flex-1 p-4 space-y-2 mt-4">
+        <nav className="flex-1 p-4 space-y-2 mt-2">
           {menuItems.map((item) => (
             <button
               key={item.id}
@@ -66,18 +77,6 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isOpen, setIsOpen }) => {
             </button>
           ))}
         </nav>
-
-        <div className="p-4 border-t border-gray-800">
-          <button
-            onClick={onLogout}
-            className="w-full flex items-center space-x-3 px-4 py-3.5 text-gray-400 hover:bg-red-500/10 hover:text-red-500 rounded-xl transition-all duration-300"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-            </svg>
-            <span className="font-semibold text-sm">Sign Out</span>
-          </button>
-        </div>
       </div>
     </>
   );
