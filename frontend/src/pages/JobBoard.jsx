@@ -56,7 +56,7 @@ const JobBoard = () => {
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8">
       <div className="max-w-7xl mx-auto">
         <header className="mb-8 text-center">
-          <h1 className="text-2xl font-black text-blue-900 mb-1">Biranu Careers</h1>
+          <h1 className="text-2xl font-black text-blue-900 mb-1">Live Jobs</h1>
           <p className="text-gray-500 text-sm">Join our global team of IT professionals</p>
         </header>
 

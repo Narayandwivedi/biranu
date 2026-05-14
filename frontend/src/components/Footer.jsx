@@ -26,7 +26,7 @@ const Footer = () => {
                 { to: '/', label: 'Home' },
                 { to: '/about', label: 'About Us' },
                 { to: '/services', label: 'Services' },
-                { to: '/jobs', label: 'Careers' },
+                { to: '/jobs', label: 'Live Jobs' },
                 { to: '/contact', label: 'Contact' },
                 { to: '/admin/login', label: 'Admin Login' },
               ].map((l) => (
