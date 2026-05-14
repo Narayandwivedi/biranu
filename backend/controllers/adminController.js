@@ -65,7 +65,7 @@ exports.createJob = async (req, res) => {
 // Get all jobs posted by the admin
 exports.getAdminJobs = async (req, res) => {
   try {
-    const jobs = await Job.find({ postedBy: req.admin.id }).sort({ createdAt: -1 });
+    const jobs = await Job.find().sort({ createdAt: -1 });
     res.json(jobs);
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
@@ -75,7 +75,7 @@ exports.getAdminJobs = async (req, res) => {
 // Get a single job with applications
 exports.getJobById = async (req, res) => {
   try {
-    const job = await Job.findOne({ _id: req.params.id, postedBy: req.admin.id });
+    const job = await Job.findOne({ _id: req.params.id });
     if (!job) {
       return res.status(404).json({ message: 'Job not found' });
     }
@@ -91,7 +91,7 @@ exports.updateJob = async (req, res) => {
   try {
     const { title, description, category, salary, location, requirements, isActive } = req.body;
     
-    let job = await Job.findOne({ _id: req.params.id, postedBy: req.admin.id });
+    let job = await Job.findOne({ _id: req.params.id });
     if (!job) {
       return res.status(404).json({ message: 'Job not found' });
     }
@@ -118,7 +118,7 @@ exports.updateJob = async (req, res) => {
 // Delete Job
 exports.deleteJob = async (req, res) => {
   try {
-    const job = await Job.findOneAndDelete({ _id: req.params.id, postedBy: req.admin.id });
+    const job = await Job.findOneAndDelete({ _id: req.params.id });
     if (!job) {
       return res.status(404).json({ message: 'Job not found' });
     }
