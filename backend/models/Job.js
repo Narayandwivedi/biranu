@@ -26,6 +26,10 @@ const jobSchema = new mongoose.Schema({
     type: [String],
     default: []
   },
+  experience: {
+    type: String,
+    trim: true
+  },
   postedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Admin',

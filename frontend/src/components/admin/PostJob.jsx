@@ -9,7 +9,8 @@ const PostJob = ({ jobToEdit, onCancel, onSuccess }) => {
     category: '',
     salary: '',
     location: '',
-    requirements: ''
+    requirements: '',
+    experience: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const token = localStorage.getItem('adminToken');
@@ -22,7 +23,8 @@ const PostJob = ({ jobToEdit, onCancel, onSuccess }) => {
         category: jobToEdit.category,
         salary: jobToEdit.salary,
         location: jobToEdit.location,
-        requirements: Array.isArray(jobToEdit.requirements) ? jobToEdit.requirements.join(', ') : ''
+        requirements: Array.isArray(jobToEdit.requirements) ? jobToEdit.requirements.join(', ') : '',
+        experience: jobToEdit.experience || ''
       });
     }
   }, [jobToEdit]);
@@ -120,6 +122,18 @@ const PostJob = ({ jobToEdit, onCancel, onSuccess }) => {
               value={formData.location}
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
               required
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-[11px] font-bold text-gray-500 ml-1 uppercase tracking-wider flex justify-between">
+              Experience <span className="text-gray-400 font-medium lowercase italic text-[10px]">Optional</span>
+            </label>
+            <input
+              type="text"
+              className={inputClasses}
+              placeholder="e.g. 0-3 Years or 2 Years Exp"
+              value={formData.experience}
+              onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
             />
           </div>
         </div>

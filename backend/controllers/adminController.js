@@ -43,7 +43,7 @@ exports.login = async (req, res) => {
 // Create Job
 exports.createJob = async (req, res) => {
   try {
-    const { title, description, category, salary, location, requirements } = req.body;
+    const { title, description, category, salary, location, requirements, experience } = req.body;
     
     const newJob = new Job({
       title,
@@ -52,6 +52,7 @@ exports.createJob = async (req, res) => {
       salary,
       location,
       requirements: requirements ? requirements.split(',').map(req => req.trim()) : [],
+      experience,
       postedBy: req.admin.id
     });
 
@@ -89,7 +90,7 @@ exports.getJobById = async (req, res) => {
 // Update Job (including status)
 exports.updateJob = async (req, res) => {
   try {
-    const { title, description, category, salary, location, requirements, isActive } = req.body;
+    const { title, description, category, salary, location, requirements, isActive, experience } = req.body;
     
     let job = await Job.findOne({ _id: req.params.id });
     if (!job) {
@@ -101,6 +102,7 @@ exports.updateJob = async (req, res) => {
     job.category = category || job.category;
     job.salary = salary || job.salary;
     job.location = location || job.location;
+    job.experience = experience !== undefined ? experience : job.experience;
     if (requirements !== undefined) {
       job.requirements = typeof requirements === 'string' ? requirements.split(',').map(req => req.trim()) : requirements;
     }
