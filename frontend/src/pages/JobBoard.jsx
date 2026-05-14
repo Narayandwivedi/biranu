@@ -140,7 +140,7 @@ const JobBoard = () => {
           )}
         </div>        {selectedJob && (
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-3xl p-6 sm:p-10 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in fade-in zoom-in duration-300 relative">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in fade-in zoom-in duration-300 relative">
               <button
                 onClick={() => { setSelectedJob(null); setShowApplyForm(false); }}
                 className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
@@ -153,12 +153,12 @@ const JobBoard = () => {
               {!showApplyForm ? (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-3xl font-black text-gray-900 mb-2">{selectedJob.title}</h2>
+                    <h2 className="text-xl font-black text-gray-900 mb-1.5">{selectedJob.title}</h2>
                     <div className="flex flex-wrap gap-3">
-                      <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                      <span className="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
                         {selectedJob.category || 'General'}
                       </span>
-                      <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                      <span className="bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
                         {selectedJob.location}
                       </span>
                     </div>
@@ -172,8 +172,8 @@ const JobBoard = () => {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Salary Package</p>
-                        <p className="font-bold text-gray-900">{selectedJob.salary}</p>
+                        <p className="text-[9px] uppercase font-bold text-gray-400 tracking-widest">Salary Package</p>
+                        <p className="font-bold text-gray-900 text-sm">{selectedJob.salary}</p>
                       </div>
                     </div>
                     {selectedJob.experience && (
@@ -184,32 +184,32 @@ const JobBoard = () => {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Experience</p>
-                          <p className="font-bold text-gray-900">{selectedJob.experience}</p>
+                          <p className="text-[9px] uppercase font-bold text-gray-400 tracking-widest">Experience</p>
+                          <p className="font-bold text-gray-900 text-sm">{selectedJob.experience}</p>
                         </div>
                       </div>
                     )}
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
+                    <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                      <div className="w-1 h-5 bg-blue-600 rounded-full"></div>
                       Job Description
                     </h3>
-                    <p className="text-gray-600 leading-relaxed whitespace-pre-wrap text-sm sm:text-base">
+                    <p className="text-gray-600 leading-relaxed whitespace-pre-wrap text-[13px]">
                       {selectedJob.description}
                     </p>
                   </div>
 
                   {selectedJob.requirements && selectedJob.requirements.length > 0 && (
                     <div className="space-y-4">
-                      <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                        <div className="w-1.5 h-6 bg-indigo-600 rounded-full"></div>
+                      <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                        <div className="w-1 h-5 bg-indigo-600 rounded-full"></div>
                         Key Requirements
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {selectedJob.requirements.map((req, i) => (
-                          <span key={i} className="px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-sm text-gray-600 font-medium">
+                          <span key={i} className="px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-xs text-gray-600 font-medium">
                             {req}
                           </span>
                         ))}
@@ -220,13 +220,13 @@ const JobBoard = () => {
                   <div className="pt-8 border-t border-gray-100 flex gap-4">
                     <button
                       onClick={() => { setSelectedJob(null); setShowApplyForm(false); }}
-                      className="flex-1 px-6 py-3.5 border border-gray-200 rounded-2xl text-gray-600 font-bold hover:bg-gray-50 transition-all active:scale-[0.98]"
+                      className="flex-1 px-5 py-3 border border-gray-200 rounded-xl text-gray-600 text-sm font-bold hover:bg-gray-50 transition-all active:scale-[0.98]"
                     >
                       Close
                     </button>
                     <button
                       onClick={() => setShowApplyForm(true)}
-                      className="flex-[2] px-8 py-3.5 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 shadow-xl shadow-blue-600/20 transition-all active:scale-[0.98]"
+                      className="flex-[2] px-6 py-3 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 shadow-xl shadow-blue-600/20 transition-all active:scale-[0.98]"
                     >
                       Proceed to Apply
                     </button>
@@ -244,8 +244,8 @@ const JobBoard = () => {
                       </svg>
                       Back to details
                     </button>
-                    <h2 className="text-3xl font-black text-gray-900 mb-2">Apply Now</h2>
-                    <p className="text-gray-500 text-sm">Submit your application for <span className="text-blue-600 font-bold">{selectedJob.title}</span></p>
+                    <h2 className="text-2xl font-black text-gray-900 mb-1.5">Apply Now</h2>
+                    <p className="text-gray-500 text-xs">Submit your application for <span className="text-blue-600 font-bold">{selectedJob.title}</span></p>
                   </div>
 
                   <form onSubmit={handleApply} className="space-y-5">
