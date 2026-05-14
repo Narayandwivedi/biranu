@@ -34,7 +34,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
             {/* Main Content */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-5">
               <span className="inline-block text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">Our Mission</span>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-snug">
                 Bridging Business Needs and Exceptional IT Talent
@@ -65,29 +65,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Founder Card */}
-            <div className="lg:col-span-2">
-              <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white shadow-xl shadow-indigo-200/50">
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30 text-lg font-bold">
-                    AP
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold">Ambika Padhy</h3>
-                    <p className="text-xs text-indigo-200">Founder & Director</p>
-                  </div>
-                </div>
-                <blockquote className="text-sm sm:text-base leading-relaxed text-indigo-100 italic">
-                  "We don't just supply talent — we enable success. Our goal is to build long-term partnerships, delivering the right IT professionals to drive your business forward."
-                </blockquote>
-                <div className="mt-6 pt-5 border-t border-white/20 flex items-center gap-2">
-                  <svg className="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  </svg>
-                  <span className="text-xs text-indigo-200">UK Headquartered</span>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
