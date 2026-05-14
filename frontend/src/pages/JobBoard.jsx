@@ -12,6 +12,7 @@ const JobBoard = () => {
     resume: null
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showApplyForm, setShowApplyForm] = useState(false);
 
   useEffect(() => {
     fetchJobs();
@@ -62,7 +63,11 @@ const JobBoard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {(jobs || []).map(job => (
-            <div key={job._id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 p-5 sm:p-6 group">
+            <div
+              key={job._id}
+              onClick={() => setSelectedJob(job)}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 p-5 sm:p-6 group cursor-pointer"
+            >
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                 <div className="flex-1 space-y-3">
                   {/* Title & Company */}
@@ -133,63 +138,162 @@ const JobBoard = () => {
               <p className="text-gray-400 text-sm mt-2">Please check back later!</p>
             </div>
           )}
-        </div>
+        </div>        {selectedJob && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-3xl p-6 sm:p-10 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in fade-in zoom-in duration-300 relative">
+              <button
+                onClick={() => { setSelectedJob(null); setShowApplyForm(false); }}
+                className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
 
-        {selectedJob && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl animate-in fade-in zoom-in duration-200">
-              <h2 className="text-2xl font-bold mb-2">Apply for {selectedJob.title}</h2>
-              <p className="text-gray-500 mb-6 text-sm">Please fill in your details and upload your resume (PDF/Word)</p>
-              
-              <form onSubmit={handleApply} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full p-2 border rounded-lg"
-                    value={formData.studentName}
-                    onChange={(e) => setFormData({...formData, studentName: e.target.value})}
-                  />
+              {!showApplyForm ? (
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-3xl font-black text-gray-900 mb-2">{selectedJob.title}</h2>
+                    <div className="flex flex-wrap gap-3">
+                      <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        {selectedJob.category || 'General'}
+                      </span>
+                      <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        {selectedJob.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-6 border-y border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Salary Package</p>
+                        <p className="font-bold text-gray-900">{selectedJob.salary}</p>
+                      </div>
+                    </div>
+                    {selectedJob.experience && (
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Experience</p>
+                          <p className="font-bold text-gray-900">{selectedJob.experience}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
+                      Job Description
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed whitespace-pre-wrap text-sm sm:text-base">
+                      {selectedJob.description}
+                    </p>
+                  </div>
+
+                  {selectedJob.requirements && selectedJob.requirements.length > 0 && (
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                        <div className="w-1.5 h-6 bg-indigo-600 rounded-full"></div>
+                        Key Requirements
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedJob.requirements.map((req, i) => (
+                          <span key={i} className="px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-sm text-gray-600 font-medium">
+                            {req}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="pt-8 border-t border-gray-100 flex gap-4">
+                    <button
+                      onClick={() => { setSelectedJob(null); setShowApplyForm(false); }}
+                      className="flex-1 px-6 py-3.5 border border-gray-200 rounded-2xl text-gray-600 font-bold hover:bg-gray-50 transition-all active:scale-[0.98]"
+                    >
+                      Close
+                    </button>
+                    <button
+                      onClick={() => setShowApplyForm(true)}
+                      className="flex-[2] px-8 py-3.5 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 shadow-xl shadow-blue-600/20 transition-all active:scale-[0.98]"
+                    >
+                      Proceed to Apply
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full p-2 border rounded-lg"
-                    value={formData.studentEmail}
-                    onChange={(e) => setFormData({...formData, studentEmail: e.target.value})}
-                  />
+              ) : (
+                <div className="space-y-8 animate-in slide-in-from-right duration-300">
+                  <div>
+                    <button
+                      onClick={() => setShowApplyForm(false)}
+                      className="text-blue-600 text-sm font-bold flex items-center gap-2 mb-4 hover:gap-3 transition-all"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                      </svg>
+                      Back to details
+                    </button>
+                    <h2 className="text-3xl font-black text-gray-900 mb-2">Apply Now</h2>
+                    <p className="text-gray-500 text-sm">Submit your application for <span className="text-blue-600 font-bold">{selectedJob.title}</span></p>
+                  </div>
+
+                  <form onSubmit={handleApply} className="space-y-5">
+                    <div className="space-y-1.5">
+                      <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. John Doe"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
+                        value={formData.studentName}
+                        onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="john@example.com"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
+                        value={formData.studentEmail}
+                        onChange={(e) => setFormData({ ...formData, studentEmail: e.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1">Resume (PDF/DOCX)</label>
+                      <input
+                        type="file"
+                        required
+                        accept=".pdf,.doc,.docx"
+                        className="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all cursor-pointer"
+                        onChange={(e) => setFormData({ ...formData, resume: e.target.files[0] })}
+                      />
+                    </div>
+
+                    <div className="pt-6 flex gap-4">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className={`flex-1 px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition-all active:scale-[0.98] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      >
+                        {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
+                      </button>
+                    </div>
+                  </form>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Resume (PDF/DOCX)</label>
-                  <input
-                    type="file"
-                    required
-                    accept=".pdf,.doc,.docx"
-                    className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                    onChange={(e) => setFormData({...formData, resume: e.target.files[0]})}
-                  />
-                </div>
-                
-                <div className="flex gap-4 mt-8">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedJob(null)}
-                    className="flex-1 px-4 py-2 border rounded-lg text-gray-600 hover:bg-gray-50 font-bold"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Submit'}
-                  </button>
-                </div>
-              </form>
+              )}
             </div>
           </div>
         )}

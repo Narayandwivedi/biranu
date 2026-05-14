@@ -15,7 +15,7 @@ exports.getAllJobs = async (req, res) => {
 exports.applyJob = async (req, res) => {
   try {
     const { studentName, studentEmail, jobId } = req.body;
-    
+
     if (!req.file) {
       return res.status(400).json({ message: 'Please upload a resume' });
     }
