@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = ({ children }) => {
   const location = useLocation();
-  const isAdminDashboard = location.pathname.startsWith('/admin/dashboard');
+  const isAdminDashboard = location.pathname.startsWith('/adm/dashboard');
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -37,8 +37,8 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/jobs" element={<JobBoard />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/adm" element={<AdminLogin />} />
+          <Route path="/adm/dashboard" element={<AdminDashboard />} />
         </Routes>
       </Layout>
     </Router>

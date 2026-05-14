@@ -19,7 +19,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     if (!token) {
-      navigate('/admin/login');
+      navigate('/adm');
     } else {
       fetchJobs();
     }
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken');
-    navigate('/admin/login');
+    navigate('/adm');
   };
 
   const handleViewDetails = (jobId) => {

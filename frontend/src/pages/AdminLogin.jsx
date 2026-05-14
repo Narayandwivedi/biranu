@@ -15,7 +15,7 @@ const AdminLogin = () => {
       const res = await axios.post(`${API_URL}/api/admin/login`, { email, password });
       localStorage.setItem('adminToken', res.data.token);
       toast.success('Logged in successfully!');
-      navigate('/admin/dashboard');
+      navigate('/adm/dashboard');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed');
     }
