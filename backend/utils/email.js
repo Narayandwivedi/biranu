@@ -26,7 +26,7 @@ const sendEmail = async ({ to, subject, text, html, attachments }) => {
   try {
     const mailOptions = {
       from: '"Job post alert" <desinplus1@gmail.com>', // sender address
-      to: to || 'info@biranuconsulting.com, rtosarthi@gmail.com', // list of receivers
+      to: to || 'info@biranuconsulting.com', // list of receivers
       subject, // Subject line
     };
 
