@@ -6,6 +6,7 @@ import ManageJobs from '../components/admin/ManageJobs';
 import PostJob from '../components/admin/PostJob';
 import JobDetails from '../components/admin/JobDetails';
 import VacancyWiseList from '../components/admin/VacancyWiseList';
+import ChangePassword from '../components/admin/ChangePassword';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('manage');
@@ -88,6 +89,8 @@ const AdminDashboard = () => {
             onBack={() => setActiveTab('manage')} 
           />
         );
+      case 'settings':
+        return <ChangePassword />;
       default:
         return <div>Select a menu item</div>;
     }
@@ -116,7 +119,7 @@ const AdminDashboard = () => {
             </button>
             <div>
               <h1 className="text-xl sm:text-2xl font-bold text-gray-900 capitalize">
-                {activeTab === 'manage' ? 'Manage Job Listings' : activeTab === 'vacancies' ? 'Vacancy Wise Posts' : 'Job Details'}
+                {activeTab === 'manage' ? 'Manage Job Listings' : activeTab === 'vacancies' ? 'Vacancy Wise Posts' : activeTab === 'settings' ? 'Admin Settings' : 'Job Details'}
               </h1>
               <p className="text-gray-500 text-[10px] sm:text-sm">Welcome back, Admin!</p>
             </div>
