@@ -13,5 +13,6 @@ router.get('/jobs/:id', auth, adminController.getJobById);
 router.put('/jobs/:id', auth, adminController.updateJob);
 router.delete('/jobs/:id', auth, adminController.deleteJob);
 router.get('/applications/:jobId', auth, adminController.getJobApplications);
+router.put('/change-password', auth, adminController.changePassword);
 
 module.exports = router;
